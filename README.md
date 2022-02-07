@@ -62,6 +62,8 @@ The asynchronous background monitoring protocol uses `zabbix_sender` to send dat
 $ pm2-zabbix --monitor
 ```
 (add --debug for additional logging)
+(add --config /etc/zabbix/zabbix_agent2.conf
+ for other configuration file )
 
 The above launches a process that connects to the current user's PM2 instance (or launches a new one if necessary) and starts sending updates in the background.
 
