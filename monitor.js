@@ -18,6 +18,7 @@ if (argv.help || argv.usage) {
 	console.log('Usage: node monitor.js [options]');
 	console.log('Options:');
 	console.log('\t--monitor - enable sending of updates to Zabbix via zabbix_sender');
+	console.log('\t--config - set config file for zabbix_sender');
 	console.log('\t--discover - instead of running constantly, print JSON in Zabbix discovery format and exit');
 	console.log('\t  (This is typically used as the command part for the pm2.processes UserParameter.)');
 	console.log('\t--hostname=<hostname> - Use <hostname> instead of the system\'s hostname');
@@ -39,6 +40,7 @@ var logger = bunyan.createLogger({
 var sender = new ZabbixSender({
 	hostname: argv.hostname || hostname,
 	server: argv.server || undefined,
+	config: argv.config || undefined,
 	logger: logger
 });
 var tracker = new PM2Tracker();
